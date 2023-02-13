@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<html>
+  <head>
+    <title>Virtual museum</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@5.0.0/dist/aframe-event-set-component.min.js"></script>
+    <script src="https://cdn.rawgit.com/mrturck/aframe-joystick/master/joystick.min.js"></script>
+    <script>
+      AFRAME.registerComponent('play-pause', {
+  init: function () {
+    var myVideo = document.querySelector('#firstvid');
+    var videoControls = document.querySelector('#videoControls');
+    this.el.addEventListener('mouseleave', function () {
+      var src = videoControls.getAttribute('src');
+      if (src === '#play') {
+        myVideo.play();
+        videoControls.setAttribute('src', '#pause');
+      } else {
+        myVideo.pause();
+        videoControls.setAttribute('src', '#play');
+      }
+    });
+  }
+});
+    </script>
+
+<script>
+  AFRAME.registerComponent('play-pause2', {
+init: function () {
+var myVideo2 = document.querySelector('#secondvid');
+var videoControls2 = document.querySelector('#videoControls2');
+this.el.addEventListener('mouseleave', function () {
+  var src2 = videoControls2.getAttribute('src');
+  if (src2 === '#play') {
+    myVideo2.play();
+    videoControls2.setAttribute('src', '#pause');
+  } else if(src2 === '#pause'){
+    myVideo2.pause();
+    videoControls2.setAttribute('src', '#play');
+  }
+});
+}
+});
+</script>
+
+<script>
+  AFRAME.registerComponent('play-pause3', {
+init: function () {
+var myVideo3 = document.querySelector('#thirdvid');
+var videoControls3 = document.querySelector('#videoControls3');
+this.el.addEventListener('mouseleave', function () {
+  var src3 = videoControls3.getAttribute('src');
+  if (src3 === '#play') {
+    myVideo3.play();
+    videoControls3.setAttribute('src', '#pause');
+  } else if(src3 === '#pause'){
+    myVideo3.pause();
+    videoControls3.setAttribute('src', '#play');
+  }
+});
+}
+});
+</script>
+
+<script>
+  AFRAME.registerComponent('play-pause4', {
+init: function () {
+var myVideo4 = document.querySelector('#fourthvid');
+var videoControls4 = document.querySelector('#videoControls4');
+this.el.addEventListener('mouseleave', function () {
+  var src4 = videoControls4.getAttribute('src');
+  if (src4 === '#play') {
+    myVideo4.play();
+    videoControls4.setAttribute('src', '#pause');
+  } else if(src4 === '#pause'){
+    myVideo4.pause();
+    videoControls4.setAttribute('src', '#play');
+  }
+});
+}
+});
+</script>
+
+    <script>
+      AFRAME.registerComponent('navigate-on-click', {
+        schema: {
+          url: {default: ''}
+        },
+    
+        init: function () {
+          var data = this.data;
+          var el = this.el;
+    
+          el.addEventListener('click', function () {
+            window.location.href = data.url;
+          });
+        }
+      });        
+    </script>
+
+  </head>
+
+  <body>
+    <div id="loading">
+      Loading...
+    </div>
+    <a-scene loading-screen="dotsColor: red; backgroundColor: black" vr-mode-ui="enabled: false" joystick>
+
+      <!--Testing-->
+      <!--Animation
+      <a-cylinder color="#F55" radius="0.1"
+                animation="property: components.material.material.color; type: color; dir: alternate; dur: 1000;
+                           easing: easeInSine; loop: true; to: #5F5"
+                animation__scale="property: scale; dir: alternate; dur: 200;
+                           easing: easeInSine; loop: true; to: 1.2 1 1.2"
+                animation__yoyo="property: position; dir: alternate; dur: 1000;
+                                 easing: easeInSine; loop: true; to: 0 3 0">
+      </a-cylinder>
+      -->
+
+
+  <a-image position="40.4 3.5 -26" src="poem/Screen Shot 2023-02-06 at 10.29.35 AM.png" width="5" height="6" rotation="0 280 0"
+  event-set__mouseenter="_target: #aboutText111; visible: true"
+  event-set__mouseleave="_target: #aboutText111; visible: false"
+  >
+  <a-text id="aboutText111" value="By: Fangchun
+"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 4 0"
+geometry="primitive: plane; width: 5; height: 2" material="color: black"></a-text>
+</a-image>
+  <a-image position="41.4 3.5 -20" src="poem/Screen Shot 2023-02-06 at 10.37.20 AM.png" width="5" height="6" rotation="0 280 0"
+  event-set__mouseenter="_target: #aboutText112; visible: true"
+  event-set__mouseleave="_target: #aboutText112; visible: false"
+  >
+  <a-text id="aboutText112" value="By: Fangchun
+"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 4 0"
+geometry="primitive: plane; width: 5; height: 2" material="color: black"></a-text>
+</a-image>
+  <a-image position="42.4 3.5 -14" src="poem/Screen Shot 2023-02-06 at 10.38.25 AM.png" width="5" height="6" rotation="0 280 0"
+  event-set__mouseenter="_target: #aboutText113; visible: true"
+  event-set__mouseleave="_target: #aboutText113; visible: false"
+  >
+  <a-text id="aboutText113" value="By: Fangchun
+"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 4 0"
+geometry="primitive: plane; width: 5; height: 2" material="color: black"></a-text>
+</a-image>
+
+  <a-image position="0.005 3.54 0.005" src="#title" width="15" height="7"></a-image>
+  <a-image position="0 3.54 -1.005" src="images/title2.jpg" width="15" height="7" rotation="0 180 0"></a-image>
+  <a-image position="19.5 4 2.9" src="images/innovation.png" width="6" height="8" rotation="180 160 180"></a-image>
+  <a-image position="19.7 4 2.09" src="images/innovation (1).png" width="6" height="8" rotation="0 160 0"></a-image>
+
+  <a-entity light="type: point; intensity: 3; distance: 80; decay: 25"
+  position="39 5 -19"></a-entity>
+  <a-entity light="type: point; intensity: 3; distance: 80; decay: 25"
+  position="0 5 7"></a-entity>
+  <a-entity light="type: point; intensity: 5; distance: 100; decay: 25"
+  position="0 5 -27"></a-entity>
+  <a-entity light="type: point; intensity: 3.5; distance: 120; decay: 30"
+  position="20 5 39"></a-entity>
+  <a-entity light="type: point; intensity: 3; distance: 80; decay: 25"
+  position="28 5 -28"></a-entity>
+  <a-entity light="type: ambient; intensity: 1"
+  position="0 10 0"></a-entity>
+  
+      <!--Testing-->
+
+      <!--Assets management-->
+      <a-assets>
+        <a-assets-item id="chair" src="assets/eames_chair/scene.gltf"></a-assets-item>
+        <a-assets-item id="whitewall" src="images/whitewall.jpg"></a-assets-item>
+        <a-assets-item id="darkwall" src="images/darkwood.jpg"></a-assets-item>
+        <a-assets-item id="board" src="assets/standing_chalkboard_01_4k.gltf/standing_chalkboard_01_4k.gltf"></a-assets-item>
+        <a-assets-item id="stanchion" src="assets/stanchions/scene.gltf"></a-assets-item>
+        <a-assets-item id="title" src="images/title.jpg"></a-assets-item>
+        <img id="play" src="assets/play.png"></img>
+        <img id="pause" src="assets/pause.png"></img>
+        <video id="firstvid" src="artwork/video 1/1975.mp4" loop="true"></video>
+        <video id="secondvid" src="artwork/video2/2038.mp4" loop="true"></video>
+        <video id="thirdvid" src="artwork/video2/5198 (2).mp4" loop="true"></video>
+        <video id="fourthvid" src="artwork/video2/Untitled.mp4" loop="true"></video>
+
+      </a-assets>
+
+      <!--Camera controls-->
+      <a-camera id="camera" camera="active: true" wasd-controls="acceleration: 50" position="0 3.5 15" device-orientation-permission-ui="enabled: false" touch-controls>
+        <a-cursor></a-cursor>
+      </a-camera>
+
+      <!--Ground, roof and sky-->
+      <a-sky src="images/gray.jpg" radius="300" color="red"></a-sky>
+      <a-plane position="0 0 0" rotation="-90 0 0" width="100" height="80" src="images/wood.jpg" repeat="5 5"></a-plane>
+      
+      <!--exterior walls-->
+      <a-box position="0 5 -40" rotation="0 0 0" width="100" height="10" depth="0.2"  repeat="5 5" src="#whitewall" color="#D1D4D5"></a-box>
+      <a-box position="0 5 40" rotation="0 0 0" width="100" height="10" depth="0.2" repeat="5 5" src="#whitewall" color="#D1D4D5"></a-box>
+      <a-box position="50 5 0" rotation="0 0 0" width="0.2" height="10" depth="80"  repeat="5 5" src="#whitewall" color="#D1D4D5"></a-box>
+      <a-box position="-50 5 0" rotation="0 0 0" width="0.2" height="10" depth="80"  repeat="5 5" src="#whitewall" color="#D1D4D5"></a-box>
+      
+      <a-box position="0 0 -39.8" rotation="0 0 0" width="100" height="3" depth="0.2" repeat="40 2" src="#darkwall"></a-box>
+      <a-box position="0 0 39.8" rotation="0 0 0" width="100" height="3" depth="0.2" repeat="40 2" src="#darkwall"></a-box>
+      <a-box position="49.8 0 0" rotation="0 0 0" width="0.2" height="3" depth="80" color="white" repeat="40 2" src="#darkwall"></a-box>
+      <a-box position="-49.8 0 0" rotation="0 0 0" width="0.2" height="3" depth="80" color="white" repeat="40 2" src="#darkwall"></a-box>
+
+      <!--Artwork walls-->
+      <a-box color="white" position="0 2 -0.5" width="15" height="10" depth="1"></a-box>
+      <a-box color="white" position="-30 2 -30" width="20" height="10" depth="1"></a-box>
+      <a-box color="white" position="-20 2 -18" width="25" height="10" depth="1" rotation="0 90 0"></a-box>
+      <a-box color="white" position="30 2 -6.5" width="7" height="10" depth="1" rotation="0 90 0"></a-box>
+      <a-box color="white" position="-40 2 10" width="25" height="10" depth="1" rotation="0 90 0"></a-box>
+
+      <a-box color="white" position="-30 2 30" width="23" height="10" depth="1"></a-box>
+
+      <a-box color="white" position="-20 2 10" width="8" height="10" depth="1" rotation="0 90 0"></a-box>
+
+      <a-box color="white" position="19.6 4 2.5" width="6" height="8" depth="0.7" rotation="0 160 0"></a-box>
+
+      <a-box color="white" position="-29 2 0" width="8" height="10" depth="1" rotation="0 90 0"></a-box>
+
+      <a-box color="white" position="-36 2 -20" width="17" height="10" depth="1" rotation="0 0 0"></a-box>
+
+      <a-box color="white" position="-29 2 20" width="8" height="10" depth="1" rotation="0 90 0"></a-box>
+
+      <a-box color="white" position="30 2 20" width="15" height="10" depth="1" rotation="0 90 0"></a-box>
+
+      <a-box color="white" position="40 2 20" width="22" height="10" depth="1" rotation="0 90 0"></a-box>
+
+      <!--Corner walls bent on top right-->
+      <a-box color="white" position="27 2 -30" width="25" height="10" depth="1" rotation="0 20 0"></a-box>
+      <a-box color="white" position="42 2 -20" width="20" height="10" depth="1" rotation="0 100 0"></a-box>
+
+      <!--Video place-->
+      <a-circle position="1 0.05 -26" rotation="270 0 0" color="#990000" radius="7" src="images/carpet.jpg" repeat="5 5"></a-circle>
+
+      <a-box position="-10 8 -39.53" depth="0.2"
+      event-set__click="_target: #video1; component: material.src; src: #secondvid; component: material.width; width: 17.777;"
+      event-set__mouseenter="color:red"
+      event-set__mouseleave="color:white"
+      >
+      <a-text value="video2:God‘s Third Child上帝的第三子
+      by Enzo李卓然"
+       wrap-count="16" font="font/fonts.fnt" width="2" align="center" color="#FFF" visible="true" position="0 1 0"
+       geometry="primitive: plane; width: 2; height: 1" material="color: black"></a-text>
+       
+    </a-box>
+
+    <a-box position="-10 3.8 -39.53" depth="0.2"
+    event-set__click="_target: #video1; component: material.src; src: #firstvid; component: material.width; width: 17.777;"
+    event-set__mouseenter="color:red"
+    event-set__mouseleave="color:white"
+    >
+    <a-text value="video1:我的姐姐Sister"
+     wrap-count="16" font="font/fonts.fnt" width="2" align="center" color="#FFF" visible="true" position="0 1 0"
+     geometry="primitive: plane; width: 2; height: 1" material="color: black"></a-text>
+  </a-box>
+
+  <a-box position="10 8 -39.53" depth="0.2"
+    event-set__click="_target: #video1; component: material.src; src: #thirdvid; component: material.width; width: 17.777;"
+    event-set__mouseenter="color:red"
+    event-set__mouseleave="color:white"
+    >
+    <a-text value="video3:Don’t Think, Just Eat别想太多吃饭吧
+    by Enzo李卓然"
+     wrap-count="16" font="font/fonts.fnt" width="2" align="center" color="#FFF" visible="true" position="0 1.2 0"
+     geometry="primitive: plane; width: 2; height: 1.2" material="color: black"></a-text>
+     
+  </a-box>
+
+  <a-box position="10 3.8 -39.53" depth="0.2"
+    event-set__click="_target: #video1; component: material.src; src: #fourthvid; component: material.width; width: 5;"
+    event-set__mouseenter="color:red"
+    event-set__mouseleave="color:white"
+    >
+    <a-text value="video4:女性生存指南（有男版）
+    by 对话中的暂停"
+     wrap-count="16" font="font/fonts.fnt" width="2" align="center" color="#FFF" visible="true" position="0 1 0"
+     geometry="primitive: plane; width: 2; height: 1" material="color: black"></a-text>
+  </a-box>
+
+
+      <a-video id="video1" src="#firstvid" width="17.777" height="8" position="0 5.75 -39.53">
+        <a-image id="videoControls" src="#play" position="-10 -3.5 0.1" scale="1 1 1" play-pause></a-image>
+        <a-image id="videoControls2" src="#play" position="-10 0.5 0.1" scale="1 1 1" play-pause2></a-image>
+        <a-image id="videoControls3" src="#play" position="10 0.5 0.1" scale="1 1 1" play-pause3></a-image>
+        <a-image id="videoControls4" src="#play" position="10 -3.5 0.1" scale="1 1 1" play-pause4></a-image>
+      </a-video>
+
+<!-------------------------------------------------------------------------------------------------------->
+
+<!--Artist 1-->
+      <a-image position="30.6 3.5 -6.5" src="artwork/artist 1/Screen Shot 2023-01-28 at 8.32.12 PM (1).png" width="5" height="5" rotation="0 90 0"
+               event-set__mouseenter="_target: #aboutText1; visible: true"
+               event-set__mouseleave="_target: #aboutText1; visible: false"
+            >
+       <a-text id="aboutText1" value="artist: 北炀"
+
+       wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" position="0 5 0"
+       geometry="primitive: plane; width: 5; height: 3" material="color: black"></a-text>
+          </a-image>
+<!--Artist 1-->
+        
+<!--Artist 2-->
+<a-image position="29.4 3.5 -6.5" src="artwork/artist 2/并不为人称道的美丽 (1).jpg" width="5" height="5" rotation="0 270 0"
+event-set__mouseenter="_target: #aboutText2; visible: true"
+event-set__mouseleave="_target: #aboutText2; visible: false"
+>
+<a-image id="aboutText2" src="description/12.jpg" position="0 4.5 1.5" width="6" height="6" rotation="30 0 0" visible="false"></a-image>
+</a-image>
+<!--Artist 2-->
+
+<!--Artist 3-->
+<a-image position="-31 3.5 29.45" src="artwork/artist 3/0110_1 (1).jpg" width="5" height="5" rotation="0 180 0"
+event-set__mouseenter="_target: #aboutText3; visible: true"
+event-set__mouseleave="_target: #aboutText3; visible: false"
+>
+<a-image id="aboutText3" src="description/2.jpg" position="0 4.5 1.5" width="6" height="6" rotation="30 0 0" visible="false"></a-image>
+</a-image>
+
+<a-image position="-38 3.5 29.45" src="artwork/artist 3/0110_1 (2).jpg" width="5" height="5" rotation="0 180 0"
+event-set__mouseenter="_target: #aboutText4; visible: true"
+event-set__mouseleave="_target: #aboutText4; visible: false"
+>
+<a-image id="aboutText4" src="description/3.jpg" position="0 4.5 1.5" width="6" height="6" rotation="30 0 0" visible="false"></a-image>
+</a-image>
+
+<a-image position="-23 3.5 29.45" src="artwork/artist 3/0110_1.jpg" width="8" height="5" rotation="0 180 0"
+event-set__mouseenter="_target: #aboutText5; visible: true"
+event-set__mouseleave="_target: #aboutText5; visible: false"
+>
+<a-image id="aboutText5" src="description/1.jpg" position="0 4.5 1.5" width="6" height="6" rotation="30 0 0" visible="false"></a-image>
+</a-image>
+<!--Artist 3-->
+
+<!--Sculpture 10-->
+<a-image position="29 3.5 16" src="artwork/sculpture 10/DSC01777.jpeg" width="5" height="5" rotation="0 270 0"
+      event-set__mouseenter="_target: #aboutText39; visible: true"
+      event-set__mouseleave="_target: #aboutText39; visible: false"
+      >
+      <a-image id="aboutText39" src="description/16.jpg" position="0 4.5 1.5" width="6" height="6" rotation="30 0 0" visible="false"></a-image>
+    </a-image>
+
+<a-image position="29 3.5 24" src="artwork/sculpture 10/DSC01795.jpeg" width="5" height="5" rotation="0 270 0"
+      event-set__mouseenter="_target: #aboutText40; visible: true"
+      event-set__mouseleave="_target: #aboutText40; visible: false"
+      >
+      <a-image id="aboutText40" src="description/16.jpg" position="0 4.5 1.5" width="6" height="6" rotation="30 0 0" visible="false"></a-image>
+    </a-image>
+<!--Sculpture 10-->
+
+<!--Sculpture 12-->
+<a-image position="39.45 3.5 13.5" src="artwork/sculpture 12/IMG_8436.jpg" width="7" height="5" rotation="0 270 0"
+      event-set__mouseenter="_target: #aboutText41; visible: true"
+      event-set__mouseleave="_target: #aboutText41; visible: false"
+      >
+      <a-image id="aboutText41" src="description/13.jpg" position="0 4.5 1.5" width="6" height="6" rotation="30 0 0" visible="false"></a-image>
+    </a-image>
+
+<a-image position="39.45 3.5 21" src="artwork/sculpture 12/IMG_8437.jpg" width="5" height="5" rotation="0 270 0"
+      event-set__mouseenter="_target: #aboutText42; visible: true"
+      event-set__mouseleave="_target: #aboutText42; visible: false"
+      >
+      <a-image id="aboutText42" src="description/14.jpg" position="0 4.5 1.5" width="6" height="6" rotation="30 0 0" visible="false"></a-image>
+    </a-image>
+
+<a-image position="39.45 3.5 27" src="artwork/sculpture 12/IMG_8438.jpg" width="5" height="5" rotation="0 270 0"
+      event-set__mouseenter="_target: #aboutText43; visible: true"
+      event-set__mouseleave="_target: #aboutText43; visible: false"
+      >
+      <<a-image id="aboutText43" src="description/15.jpg" position="0 4.5 1.5" width="6" height="6" rotation="30 0 0" visible="false"></a-image>
+    </a-image>
+<!--Sculpture 12-->
+
+<!--Artist 4-->
+      <a-image position="-20.55 3.5 -22.5" src="artwork/artist 4/《擦亮眼睛派》 (1).png" width="9" height="5" rotation="0 270 0"
+      event-set__mouseenter="_target: #aboutText16; visible: true"
+      event-set__mouseleave="_target: #aboutText16; visible: false"
+      >
+      <a-text id="aboutText16" value="Title: 擦亮眼睛派 Keep Your Eyes Open
+      Artist: 特芙姥姥
+      "
+
+      wrap-count="150" font="font/fonts.fnt" width="25" align="center" color="#FFF" visible="false" position="0 5 0"
+      geometry="primitive: plane; width: 8; height: 3" material="color: black"></a-text>
+    </a-image>
+
+      <a-image position="-20.55 3.5 -11.5" src="artwork/artist 4/《装睡》.jpg" width="9" height="5" rotation="0 270 0"
+      event-set__mouseenter="_target: #aboutText17; visible: true"
+      event-set__mouseleave="_target: #aboutText17; visible: false"
+      >
+      <a-text id="aboutText17" value="Title: 装睡 Pretend To Be Asleep
+      Artist: 特芙姥姥" 
+      wrap-count="150" font="font/fonts.fnt" width="25" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 5 0"
+      geometry="primitive: plane; width: 8; height: 3" material="color: black"></a-text>
+    </a-image>
+
+      <a-image position="-30.5 3.5 -29.45" src="artwork/artist 4/《Ice-cream，I scream》.png" width="5" height="5" rotation="0 0 0"
+      event-set__mouseenter="_target: #aboutText18; visible: true"
+      event-set__mouseleave="_target: #aboutText18; visible: false"
+      >
+      <a-text id="aboutText18" value="Title: Ice cream, I scream
+      Artist: 特芙姥姥"
+
+      wrap-count="150" font="font/fonts.fnt" width="25" align="center" color="#FFF" visible="false" position="0 5 0"
+      geometry="primitive: plane; width: 8; height: 3" material="color: black"></a-text>
+    </a-image>
+
+      
+
+      <a-image position="-24 3.5 -29.45" src="artwork/artist 4/《禁果》.png" width="5" height="5" rotation="0 0 0"
+      event-set__mouseenter="_target: #aboutText20; visible: true"
+      event-set__mouseleave="_target: #aboutText20; visible: false"
+      >
+      <a-text id="aboutText20" value="Title: 禁果 Forbidden Fruit
+      Artist: 特芙姥姥"
+
+      wrap-count="150" font="font/fonts.fnt" width="25" align="center" color="#FFF" visible="false" position="0 5 0"
+      geometry="primitive: plane; width: 8; height: 3" material="color: black"></a-text>
+    </a-image>
+
+      <a-image position="-37 3.5 -29.45" src="artwork/artist 4/《招娣们》 (1).png" width="5" height="5" rotation="0 0 0"
+      event-set__mouseenter="_target: #aboutText21; visible: true"
+      event-set__mouseleave="_target: #aboutText21; visible: false"
+      >
+      <a-text id="aboutText21" value="Title: 招娣们 &quot;Zhao Di&quot;
+      Artist: 特芙姥姥
+      *The name &quot;Zhao Di&quot; represents the family&apos;s wish to have a son.
+      "
+
+      wrap-count="150" font="font/fonts.fnt" width="25" align="center" color="#FFF" visible="false" position="0 5 0"
+      geometry="primitive: plane; width: 9; height: 3" material="color: black"></a-text>
+    </a-image>
+<!--Artist 4-->
+
+<!--Artist 5-->
+      <a-image position="-39.45 3.5 7" src="artwork/artist 5/1673544759032.png" width="5" height="5" rotation="0 90 0" 
+      event-set__mouseenter="_target: #aboutText6; visible: true"
+      event-set__mouseleave="_target: #aboutText6; visible: false"
+   >
+<a-text id="aboutText6" value="Title: 招娣 &quot;Zhao Di&quot;
+Artist: 采矿二班孙菱
+"
+
+wrap-count="150" font="font/fonts.fnt" width="25" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 8; height: 3" material="color: black"></a-text>
+      </a-image>
+
+      <a-image position="-39.45 3.5 13" src="artwork/artist 5/1673544778519.png" width="5" height="5" rotation="0 90 0"
+      event-set__mouseenter="_target: #aboutText7; visible: true"
+      event-set__mouseleave="_target: #aboutText7; visible: false"
+   >
+<a-text id="aboutText7" value="Title: 唐山图 Paintings for the Tangshan Incident
+Artist: 采矿二班孙菱
+"
+
+wrap-count="150" font="font/fonts.fnt" width="25" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 8; height: 3" material="color: black"></a-text>
+    </a-image>
+
+    <a-image position="-39.45 3.5 19" src="artwork/artist 5/1673544785447.png" width="5" height="5" rotation="0 90 0"
+      event-set__mouseenter="_target: #aboutText8; visible: true"
+      event-set__mouseleave="_target: #aboutText8; visible: false"
+   >
+<a-text id="aboutText8" value="Title: 唐山图 Paintings for the Tangshan Incident
+Artist: 采矿二班孙菱"
+
+wrap-count="150" font="font/fonts.fnt" width="25" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 8; height: 3" material="color: black"></a-text>
+    </a-image>
+
+    <a-image position="-39.45 3.5 1" src="artwork/artist 5/1673544816275.png" width="5" height="5" rotation="0 90 0"
+      event-set__mouseenter="_target: #aboutText9; visible: true"
+      event-set__mouseleave="_target: #aboutText9; visible: false"
+   >
+   <a-image id="aboutText9" src="description/4.jpg" position="0 4.5 1.5" width="6" height="6" rotation="30 0 0" visible="false"></a-image>
+    </a-image>
+<!--Artist 5-->
+
+<!--Artist 6-->
+<a-image position="-19.4 3.5 10" src="artwork/artist 6/0116_1.jpg" width="5" height="5" rotation="0 90 0"
+event-set__mouseenter="_target: #aboutText15; visible: true"
+event-set__mouseleave="_target: #aboutText15; visible: false"
+>
+<a-image id="aboutText15" src="description/5.jpg" position="0 4.5 1.5" width="6" height="6" rotation="30 0 0" visible="false"></a-image>
+</a-image>
+<!--Artist 6-->
+
+<!--Artist 13-->
+<a-image position="-28.45 3.5 0" src="artwork/artist 13/Screen Shot 2023-02-07 at 7.56.48 PM.png" width="5" height="5" rotation="0 90 0"
+event-set__mouseenter="_target: #aboutText22; visible: true"
+event-set__mouseleave="_target: #aboutText22; visible: false"
+>
+<a-image id="aboutText22" src="description/7.jpg" position="0 4.5 1.5" width="6" height="6" rotation="30 0 0" visible="false"></a-image>
+</a-image>
+
+<!--Artist 13-->
+
+<!--Artist 14-->
+<a-image position="-41.5 3.5 -19.45" src="artwork/artist 14/Screen Shot 2023-02-07 at 8.01.44 PM.png" width="5" height="5" rotation="0 0 0"
+event-set__mouseenter="_target: #aboutText28; visible: true"
+event-set__mouseleave="_target: #aboutText28; visible: false"
+>
+<a-image id="aboutText28" src="description/8.jpg" position="0 4.5 1.5" width="6" height="6" rotation="30 0 0" visible="false"></a-image>
+</a-image>
+
+<a-image position="-36 3.5 -19.45" src="artwork/artist 14/Screen Shot 2023-02-07 at 8.06.13 PM.png" width="5" height="5" rotation="0 0 0"
+event-set__mouseenter="_target: #aboutText29; visible: true"
+event-set__mouseleave="_target: #aboutText29; visible: false"
+>
+<a-image id="aboutText29" src="description/9.jpg" position="0 4.5 1.5" width="6" height="6" rotation="30 0 0" visible="false"></a-image>
+</a-image>
+<!--Artist 14-->
+
+<!--Artist 15-->
+<a-image position="-30.5 3.5 -19.45" src="artwork/artist 15/Screen Shot 2023-02-07 at 8.10.38 PM.png" width="5" height="5" rotation="0 0 0"
+event-set__mouseenter="_target: #aboutText31; visible: true"
+event-set__mouseleave="_target: #aboutText31; visible: false"
+>
+<a-image id="aboutText31" src="description/10.jpg" position="0 4.5 1.5" width="6" height="6" rotation="30 0 0" visible="false"></a-image>
+</a-image>
+<!--Artist 15-->
+
+<!--Artist 11-->
+<a-image position="-31 3.5 -20.55" src="artwork/artist 11/1593A64B-01AA-4B5D-8F86-FB3E752893FF (1).jpg" width="5" height="5" rotation="0 180 0"
+event-set__mouseenter="_target: #aboutText32; visible: true"
+event-set__mouseleave="_target: #aboutText32; visible: false"
+>
+<a-image id="aboutText32" src="description/11.jpg" position="0 4.5 1.5" width="6" height="6" rotation="30 0 0" visible="false"></a-image>
+</a-image>
+<!--Artist 11-->
+
+<!--Artist 7-->
+<a-image position="-28.45 3.5 20" src="artwork/artist 7/0117_1 (1).jpg" width="5" height="5" rotation="0 90 0"
+event-set__mouseenter="_target: #aboutText34; visible: true"
+event-set__mouseleave="_target: #aboutText34; visible: false"
+>
+<a-text id="aboutText34" value="Artist: shirunmeng
+"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 4 0"
+geometry="primitive: plane; width: 5; height: 2" material="color: black"></a-text>
+</a-image>
+
+<a-image position="-29.55 3.5 20" src="artwork/artist 7/0117_2.jpg" width="5" height="5" rotation="0 270 0"
+event-set__mouseenter="_target: #aboutText35; visible: true"
+event-set__mouseleave="_target: #aboutText35; visible: false"
+>
+<a-text id="aboutText35" value="Artist: shirunmeng
+"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" rotation="0 0 0" color="#FFF" visible="false" position="0 4 0"
+geometry="primitive: plane; width: 5; height: 2" material="color: black"></a-text>
+</a-image>
+<!--Artist 7-->
+
+<!--Artist 18-->
+<a-image position="-39 3.5 -20.55" src="artwork/artist 18/9071675743376_.pic.jpg" width="5" height="5" rotation="0 180 0"
+event-set__mouseenter="_target: #aboutText30; visible: true"
+event-set__mouseleave="_target: #aboutText30; visible: false"
+>
+<a-image id="aboutText30" src="description/21.jpg" position="0 4.5 1.5" width="6" height="6" rotation="30 0 0" visible="false"></a-image>
+</a-image>
+<!--Artist 18-->
+
+<!--Artist 8-->
+<a-image position="-20.6 3.5 10" src="artwork/artist 8/Screen Shot 2023-01-28 at 8.57.57 PM (1).png" width="5" height="5" rotation="0 270 0"
+event-set__mouseenter="_target: #aboutText14; visible: true"
+event-set__mouseleave="_target: #aboutText14; visible: false"
+>
+<a-image id="aboutText14" src="description/6.jpg" position="0 4.5 1.5" width="6" height="6" rotation="30 0 0" visible="false"></a-image>
+</a-image>
+<!--Artist 8-->
+
+<!--Artist 16-->
+<a-image position="-49.75 5 18" src="artwork/artist 16/IMG_9040.png" width="6" height="6" rotation="0 90 0"
+event-set__mouseenter="_target: #aboutText51; visible: true"
+event-set__mouseleave="_target: #aboutText51; visible: false"
+>
+<a-text id="aboutText51" value="插画合集：对自我的探索Exploration of self
+Artist:迷迷
+Title: 原生家庭-捆绑的爱Family of Origin-Bonds of Love
+"
+
+wrap-count="150" font="font/fonts.fnt" width="20" align="center" rotation="20 0 0" color="#FFF" visible="false" position="0 4 1"
+geometry="primitive: plane; width: 15; height: 2" material="color: black"></a-text>
+</a-image>
+
+<a-image position="-49.75 5 10" src="artwork/artist 16/IMG_9041.png" width="6" height="6" rotation="0 90 0"
+event-set__mouseenter="_target: #aboutText52; visible: true"
+event-set__mouseleave="_target: #aboutText52; visible: false"
+>
+<a-text id="aboutText52" value="Title: 亲密关系-渐行渐远的友谊Intimacy - Drifting Friendship
+"
+
+wrap-count="150" font="font/fonts.fnt" width="20" align="center" rotation="30 0 0" color="#FFF" visible="false" position="0 4 0.5"
+geometry="primitive: plane; width: 15; height: 2" material="color: black"></a-text>
+</a-image>
+
+<a-image position="-49.75 5.7 2" src="artwork/artist 16/IMG_9042.png" width="6" height="8" rotation="0 90 0"
+event-set__mouseenter="_target: #aboutText53; visible: true"
+event-set__mouseleave="_target: #aboutText53; visible: false"
+>
+<a-text id="aboutText53" value="Title: 亲密关系-相互治愈的爱情Intimacy - Mutual Healing Love
+"
+
+wrap-count="150" font="font/fonts.fnt" width="20" align="center" rotation="30 0 0" color="#FFF" visible="false" position="0 4 0.5"
+geometry="primitive: plane; width: 15; height: 2" material="color: black"></a-text>
+</a-image>
+
+<a-image position="-49.75 5 -6" src="artwork/artist 16/IMG_9043.png" width="6" height="6" rotation="0 90 0"
+event-set__mouseenter="_target: #aboutText54; visible: true"
+event-set__mouseleave="_target: #aboutText54; visible: false"
+>
+<a-text id="aboutText54" value="Title: 封闭的我Sealed Me
+"
+
+wrap-count="150" font="font/fonts.fnt" width="20" align="center" rotation="30 0 0" color="#FFF" visible="false" position="0 4 0.5"
+geometry="primitive: plane; width: 15; height: 2" material="color: black"></a-text>
+</a-image>
+
+<a-image position="-49.75 5 -14" src="artwork/artist 16/IMG_9044.png" width="6" height="6" rotation="0 90 0"
+event-set__mouseenter="_target: #aboutText55; visible: true"
+event-set__mouseleave="_target: #aboutText55; visible: false"
+>
+<a-text id="aboutText55" value="Title: 你好，世界Hi, World
+"
+
+wrap-count="150" font="font/fonts.fnt" width="20" align="center" rotation="30 0 0" color="#FFF" visible="false" position="0 4 0.5"
+geometry="primitive: plane; width: 15; height: 2" material="color: black"></a-text>
+</a-image>
+
+<a-image position="-49.75 5.7 -22" src="artwork/artist 16/IMG_9045.png" width="6" height="8" rotation="0 90 0"
+event-set__mouseenter="_target: #aboutText56; visible: true"
+event-set__mouseleave="_target: #aboutText56; visible: false"
+>
+<a-text id="aboutText56" value="Title: 所及之处皆是所爱之物Your love is everywhere.
+"
+
+wrap-count="150" font="font/fonts.fnt" width="20" align="center" rotation="30 0 0" color="#FFF" visible="false" position="0 3.5 0.5"
+geometry="primitive: plane; width: 15; height: 2" material="color: black"></a-text>
+</a-image>
+<!--Artist 16-->
+
+<!--Artist 17-->
+<a-image position="-19.4 3.5 -27" src="artwork/artist 17/17a.png" width="4.7" height="5" rotation="0 90 0"
+event-set__mouseenter="_target: #aboutText10; visible: true"
+      event-set__mouseleave="_target: #aboutText10; visible: false"
+   >
+<a-text id="aboutText10" value="Artist: Fangchun"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 5; height: 3" material="color: black"></a-text>
+</a-image>
+
+<a-image position="-19.4 3.5 -21" src="artwork/artist 17/17b.png" width="5" height="5" rotation="0 90 0"
+event-set__mouseenter="_target: #aboutText11; visible: true"
+      event-set__mouseleave="_target: #aboutText11; visible: false"
+   >
+<a-text id="aboutText11" value="Artist: Fangchun"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 5; height: 3" material="color: black"></a-text>
+</a-image>
+
+<a-image position="-19.4 3.5 -15" src="artwork/artist 17/Screen Shot 2023-02-07 at 8.21.16 PM.png" width="5" height="5" rotation="0 90 0"
+event-set__mouseenter="_target: #aboutText12; visible: true"
+      event-set__mouseleave="_target: #aboutText12; visible: false"
+   >
+<a-text id="aboutText12" value="Artist: Fangchun"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 5; height: 3" material="color: black"></a-text>
+</a-image>
+
+<a-image position="-19.4 3.5 -9" src="artwork/artist 17/Screen Shot 2023-02-07 at 8.21.37 PM.png" width="5" height="5" rotation="0 90 0"
+event-set__mouseenter="_target: #aboutText13; visible: true"
+      event-set__mouseleave="_target: #aboutText13; visible: false"
+   >
+<a-text id="aboutText13" value="Artist: Fangchun"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" position="0 5 0"
+geometry="primitive: plane; width: 5; height: 3" material="color: black"></a-text>
+</a-image>
+<!--Artist 17-->
+
+<!--literature right-->
+<a-image position="24.4 3.5 -28.4" src="artwork/literature 24/11.jpeg" width="5" height="5" rotation="0 20 0"></a-image>
+<a-image position="19 3.5 -26.47" src="artwork/literature 24/10.jpeg" width="5" height="5" rotation="0 20 0"></a-image>
+<a-image position="29.75 3.5 -30.42" src="artwork/literature 24/12.jpeg" width="5" height="5" rotation="0 20 0"></a-image>
+<a-image position="35.3 3.5 -32.34" src="artwork/literature 24/13.jpeg" width="5" height="5" rotation="0 20 0"></a-image>
+<a-image position="18 3.5 -27.3" src="artwork/literature 23/9.jpeg" width="5" height="5" rotation="180 20 180"></a-image>
+<a-image position="24 3.5 -29.55" src="artwork/literature 23/8.jpeg" width="5" height="5" rotation="180 20 180"></a-image>
+<!--literature right-->
+
+<!--literature left-->
+<a-image position="-15 5.75 -39.53" src="artwork/literature 22/7.jpeg" width="5" height="5" rotation="0 0 0"></a-image>
+<a-image position="-23 5.75 -39.53" src="artwork/literature 22/6.jpeg" width="5" height="5" rotation="0 0 0"></a-image>
+<a-image position="-31 5.75 -39.53" src="artwork/literature 25/14.jpeg" width="5" height="5" rotation="0 0 0"></a-image>
+<a-image position="-39 5.75 -39.53" src="artwork/literatureeee 26/15.jpeg" width="5" height="5" rotation="0 0 0" navigate-on-click="url: https://mp.weixin.qq.com/s/5QnGSbiAw38xPJi6cH4vww"></a-image>
+<a-image position="-47 5.75 -39.53" src="artwork/literatureeee 26/16.jpeg" width="5" height="5" rotation="0 0 0" navigate-on-click="url: https://mp.weixin.qq.com/s/JFpaC1Li_r4Y2YNkoetR1g"></a-image>
+<a-image position="15 5.75 -39.53" src="artwork/literatureeee 26/17.jpeg" width="5" height="5" rotation="0 0 0" navigate-on-click="url: https://mp.weixin.qq.com/s/EH7Fw0n4AulOvEqnddqymQ"></a-image>
+<a-image position="23 5.75 -39.53" src="artwork/literatureeee 26/18.jpeg" width="5" height="5" rotation="0 0 0" navigate-on-click="url: https://mp.weixin.qq.com/s/7smMU-dGCKz9dMM3NOk_Cg"></a-image>
+<a-image position="31 5.75 -39.53" src="artwork/literatureeee 26/19.jpeg" width="5" height="5" rotation="0 0 0" navigate-on-click="url: https://mp.weixin.qq.com/s/lPtNUXWDPqYmvG282hN9ag"></a-image>
+<a-image position="39 5.75 -39.53" src="artwork/literatureeee 26/20.jpeg" width="5" height="5" rotation="0 0 0" navigate-on-click="url: https://mp.weixin.qq.com/s/a_ioc-di6JZMOCxsQ6YKkw"></a-image>
+<!--literature left-->
+
+<!--photography-->
+<a-image position="49.85 5.5 13" src="artwork/photography 9/1cd4fe5faha413ad5bd3aa5a00f4a35e.jpeg" width="7" height="7" rotation="0 270 0"
+event-set__mouseenter="_target: #aboutText71; visible: true"
+      event-set__mouseleave="_target: #aboutText71; visible: false"
+   >
+<a-text id="aboutText71" value="Title:暴食症Binge Eating Disorder"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" rotation="20 0 0" position="0 4 0.1"
+geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+
+<a-image position="49.85 5.5 21" src="artwork/photography 9/cf443e835j20f357b7c22282c155031d.jpeg" width="5" height="7" rotation="0 270 0"
+event-set__mouseenter="_target: #aboutText72; visible: true"
+      event-set__mouseleave="_target: #aboutText72; visible: false"
+   >
+<a-text id="aboutText72" value="Title:暴食症Binge Eating Disorder"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" rotation="20 0 0" position="0 4 0.1"
+geometry="primitive: plane; width: 7; height: 3" material="color: black"></a-text></a-image>
+
+<a-image position="49.85 5.5 28" src="artwork/photography 9/6bb7dbbcbo87136ca5a03074bb7a597d.jpeg" width="5" height="7" rotation="0 270 0"
+event-set__mouseenter="_target: #aboutText73; visible: true"
+      event-set__mouseleave="_target: #aboutText73; visible: false"
+   >
+<a-text id="aboutText73" value="Title: 圆寸之下，翩然起舞Elegantly dancing under the inch"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" rotation="20 0 0" position="0 4 0.1"
+geometry="primitive: plane; width: 9; height: 3" material="color: black"></a-text></a-image>
+
+<a-image position="49.85 5.5 35" src="artwork/photography 9/3a9542094q44c7c8ea54491be841eb0a (1).jpeg" width="5" height="7" rotation="0 270 0"
+event-set__mouseenter="_target: #aboutText74; visible: true"
+      event-set__mouseleave="_target: #aboutText74; visible: false"
+   >
+<a-text id="aboutText74" value="Title: 圆寸之下，翩然起舞Elegantly dancing under the inch"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" rotation="20 0 0" position="0 4 0.1"
+geometry="primitive: plane; width: 9; height: 3" material="color: black"></a-text></a-image>
+
+<a-image position="45 5.5 39.85" src="artwork/photography 9/49f563353p2f7f1984bfe044fd9e5e78.jpeg" width="5" height="7" rotation="0 180 0"
+event-set__mouseenter="_target: #aboutText75; visible: true"
+      event-set__mouseleave="_target: #aboutText75; visible: false"
+   >
+<a-text id="aboutText75" value="Title: 圆寸之下，翩然起舞Elegantly dancing under the inch"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" rotation="20 0 0" position="0 4 0.1"
+geometry="primitive: plane; width: 9; height: 3" material="color: black"></a-text></a-image>
+<a-image position="38 5.5 39.85" src="artwork/photography 9/4229ab386s5303c94d67d8947675013f.jpeg" width="5" height="7" rotation="0 180 0"
+event-set__mouseenter="_target: #aboutText76; visible: true"
+      event-set__mouseleave="_target: #aboutText76; visible: false"
+   >
+<a-text id="aboutText76" value="Title: 谁让裙子成为了枷锁Who turned the skirt into a shackle"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" rotation="20 0 0" position="0 4 0.1"
+geometry="primitive: plane; width: 10; height: 3" material="color: black"></a-text></a-image>
+<a-image position="31 5.5 39.85" src="artwork/photography 9/552f4b67chb5748090ca4c8595ff2a3f.jpeg" width="5" height="7" rotation="0 180 0"
+event-set__mouseenter="_target: #aboutText77; visible: true"
+      event-set__mouseleave="_target: #aboutText77; visible: false"
+   >
+<a-text id="aboutText77" value="Title: 谁让裙子成为了枷锁Who turned the skirt into a shackle"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" rotation="20 0 0" position="0 4 0.1"
+geometry="primitive: plane; width: 10 ; height: 3" material="color: black"></a-text></a-image>
+<a-image position="20 5 39.6" src="images/The Escape from Beauty Obligation Plan.png" width="13" height="10" rotation="0 180 0"></a-image>
+<a-image position="9.5 5.5 39.6" src="artwork/photography 9/2932fe251u58fab555aa07b7b4dd2c83 (1).jpeg" width="5" height="7" rotation="0 180 0"
+event-set__mouseenter="_target: #aboutText78; visible: true"
+      event-set__mouseleave="_target: #aboutText78; visible: false"
+   >
+<a-text id="aboutText78" value="Title: 想跑就跑Run if you want to"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" rotation="0 0 0" position="0 4 0.1"
+geometry="primitive: plane; width: 12; height: 2" material="color: black"></a-text></a-image>
+<a-image position="0.5 5.5 39.6" src="artwork/photography 9/33a26e9d0ma273a7fce99f523b71ae9e (1).jpeg" width="5" height="7" rotation="0 180 0"
+event-set__mouseenter="_target: #aboutText79; visible: true"
+      event-set__mouseleave="_target: #aboutText79; visible: false"
+   >
+<a-text id="aboutText79" value="Title: 想跑就跑Run if you want to"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" rotation="0 0 0" position="0 4 0.1"
+geometry="primitive: plane; width: 12; height: 2" material="color: black"></a-text></a-image>
+
+<a-image position="-10 5.5 39.6" src="artwork/photography 9/af47b56e4tfce358fad4d7be6425711b.jpeg" width="5" height="7" rotation="0 180 0"
+event-set__mouseenter="_target: #aboutText80; visible: true"
+      event-set__mouseleave="_target: #aboutText80; visible: false"
+   >
+<a-text id="aboutText80" value="Title: 女生张开腿坐，真没教养Girls sit with their legs open, so uneducated"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" rotation="0 0 0" position="0 4 0.1"
+geometry="primitive: plane; width: 12; height: 2" material="color: black"></a-text></a-image>
+
+<a-image position="-20 5.5 39.6" src="artwork/photography 9/cbd1ac567h2d3d7e33c4faa2248042a4.jpeg" width="5" height="7" rotation="0 180 0"
+event-set__mouseenter="_target: #aboutText81; visible: true"
+      event-set__mouseleave="_target: #aboutText81; visible: false"
+   >
+<a-text id="aboutText81" value="Title: 踩过界Stepping Over Boundaries"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" rotation="0 0 0" position="0 4 0.1"
+geometry="primitive: plane; width: 12; height: 2" material="color: black"></a-text></a-image>
+
+<a-image position="-30 5.5 39.6" src="artwork/photography 9/901cd38f8k302fff47d937eb23771482.jpeg" width="5" height="7" rotation="0 180 0"
+event-set__mouseenter="_target: #aboutText82; visible: true"
+      event-set__mouseleave="_target: #aboutText82; visible: false"
+   >
+<a-text id="aboutText82" value="Title: 不潮人街拍Out-of-fashion Street Photography"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" rotation="0 0 0" position="0 4 0.1"
+geometry="primitive: plane; width: 12; height: 2" material="color: black"></a-text></a-image>
+
+<a-image position="-40 5.5 39.6" src="artwork/photography 9/30fd427c5g12efa9b4418befe6ce7d70.jpeg" width="5" height="7" rotation="0 180 0"
+event-set__mouseenter="_target: #aboutText83; visible: true"
+      event-set__mouseleave="_target: #aboutText83; visible: false"
+   >
+<a-text id="aboutText83" value="Title: 化妆如何束缚了我How Makeup Restrains Me"
+
+wrap-count="150" font="font/fonts.fnt" width="30" align="center" color="#FFF" visible="false" rotation="0 0 0" position="0 4 0.1"
+geometry="primitive: plane; width: 12; height: 2" material="color: black"></a-text></a-image>
+
+<a-image position="49.85 5.5 5" src="artwork/literature 19/2.jpeg" width="7" height="7" rotation="0 270 0"></a-image>
+<a-image position="49.85 5.5 -3" src="artwork/literature 19/1.jpeg" width="7" height="7" rotation="0 270 0"></a-image>
+<a-image position="49.85 5.5 -11" src="artwork/literature 20/3.jpeg" width="7" height="7" rotation="0 270 0"></a-image>
+<a-image position="49.85 5.5 -19" src="artwork/literature 21/5.jpeg" width="7" height="7" rotation="0 270 0"
+event-set__mouseenter="_target: #aboutText102; visible: true"
+event-set__mouseleave="_target: #aboutText102; visible: false"
+>
+<a-image id="aboutText102" src="description/19.jpg" position="0 6 1.5" width="6" height="6" rotation="30 0 0" visible="false"></a-image>
+</a-image>
+
+<a-image position="49.85 5.5 -27" src="artwork/literature 21/4.jpeg" width="7" height="7" rotation="0 270 0"
+event-set__mouseenter="_target: #aboutText101; visible: true"
+event-set__mouseleave="_target: #aboutText101; visible: false"
+>
+<a-image id="aboutText101" src="description/19.jpg" position="0 6 1.5" width="6" height="6" rotation="30 0 0" visible="false"></a-image>
+</a-image>
+<!--photography-->
+
+<!-------------------------------------------------------------------------------------------------------->
+
+
+    <!--Imported 3d models-->
+      <a-entity gltf-model="#chair" position="-1 0 -25" rotation="0 180 0" scale="0.1 0.1 0.1" shader="flat"></a-entity>
+      <a-entity gltf-model="#chair" position="3 0 -25" rotation="0 180 0" scale="0.1 0.1 0.1" shader="flat"></a-entity>
+      <a-entity gltf-model="#board" position="-7 0 -28" rotation="0 50 0" scale="3.5 3.5 3.5">
+        <a-text rotation="-12 0 0" value="请点击墙上的按钮来选择影片并滑动按钮去开始和停止影片
+        Please click the buttons on the wall to select the films and slide over the buton to start and stop"
+wrap-count="20" font="font/fonts.fnt" width="0.7" 
+align="center" color="white" visible="true" rotation="0 0 0" position="0 1 0.18"></a-text>
+<a-image src="images/innovation (2).jpg" width="0.78" height="1.15" position="0.01 0.885 -0.19" rotation="-12 180 0"></a-image>
+      </a-entity>
+              <!--right fence-->
+      <a-entity gltf-model="#stanchion" position="2 0 9.5" rotation="0 90 0" scale="0.1 0.1 0.1"></a-entity>
+      <a-entity gltf-model="#stanchion" position="2 0 7.5" rotation="0 90 0" scale="0.1 0.1 0.1"></a-entity>
+      <a-entity gltf-model="#stanchion" position="2 0 5.5" rotation="0 90 0" scale="0.1 0.1 0.1"></a-entity>
+      <a-entity gltf-model="#stanchion" position="2 0 11.5" rotation="0 90 0" scale="0.1 0.1 0.1"></a-entity>
+      <a-entity gltf-model="#stanchion" position="2 0 13.5" rotation="0 90 0" scale="0.1 0.1 0.1"></a-entity>
+      <a-entity gltf-model="#stanchion" position="2 0 15.5" rotation="0 90 0" scale="0.1 0.1 0.1"></a-entity>
+              <!--left fence-->
+      <a-entity gltf-model="#stanchion" position="-2 0 9.5" rotation="0 90 0" scale="0.1 0.1 0.1"></a-entity>
+      <a-entity gltf-model="#stanchion" position="-2 0 7.5" rotation="0 90 0" scale="0.1 0.1 0.1"></a-entity>
+      <a-entity gltf-model="#stanchion" position="-2 0 5.5" rotation="0 90 0" scale="0.1 0.1 0.1"></a-entity>
+      <a-entity gltf-model="#stanchion" position="-2 0 11.5" rotation="0 90 0" scale="0.1 0.1 0.1"></a-entity>
+      <a-entity gltf-model="#stanchion" position="-2 0 13.5" rotation="0 90 0" scale="0.1 0.1 0.1"></a-entity>
+      <a-entity gltf-model="#stanchion" position="-2 0 15.5" rotation="0 90 0" scale="0.1 0.1 0.1"></a-entity>
+
+              <!--artframes-->
+      <a-entity gltf-model="#frame" position="-29.6 1 -9.4" rotation="0 0 0" scale=".02 .02 .029"></a-entity>
+
+              <!--carpet-->
+      <a-plane position="0 0.1 10" rotation="270 0 90" color="#990000" width="11" height="2" src="images/carpet.jpg" repeat="5 5"></a-plane>
+
+    </a-scene>
+  </body>
+</html>
